@@ -3,17 +3,6 @@ let enlaces = document.getElementById("nav-group");
 let contador = 0;
 
 
-document.addEventListener("click", function(event) {
-    let insideclick = button.contains(event.target);
-    if(insideclick){
-        enlaces.classList.replace("oculto","visible");
-        button.style.display = "none";
-    }
-    if(!insideclick){
-        enlaces.classList.replace("visible", "oculto");
-        button.style.display = "block";
-    }
-})
 
 
 let slideIndex = 0;

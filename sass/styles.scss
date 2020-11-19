@@ -29,6 +29,7 @@ $fuenteLemonBOld: 'lemon_milkbold';
 *{box-sizing:border-box}
 
 html {
+    font-size: calc(1em + 1vw);
     font-family: $fuenteJost;
     font-weight: 400;
     background-color: black;
@@ -115,14 +116,14 @@ header {
     flex-direction: column;
     justify-content: space-between;
     p {
-        font-size: 1.2em;
+        font-size: 1.4em;
         font-family: $fuenteJost;
-        width: 300px;
+        width: 30%;
         color: white;
-        margin-left: 20px;
-        margin-bottom: 30px;
+        margin-left: 1em;
+        margin-bottom: 1em;
         font-weight: 500;
-        text-align: center;
+        text-align: left;
         span {
             font-weight: 300;
             font-family: $fuenteJost;
@@ -147,7 +148,7 @@ header {
 
 .logo {
     font-family: $fuenteLemonBOld;
-    font-size: 1.6em;
+    font-size: 1.4em;
     text-decoration: none;
     color: white;
     margin-top: 50px;
@@ -158,12 +159,12 @@ header {
     height: 100%;
     position: fixed;
     top: 0;
-    right: 0;
+    right: -1000px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color:black;
-
+    transition: all 0.6s;
     .hamburguer-menu {
         width: 50px;
         height: 40px;
@@ -175,11 +176,6 @@ header {
         right: 25px;
         top: 5px;
         position: fixed;
-        .line {
-            width: 100%;
-            height: 3px;
-            background-color: white;
-        }
     }
 
     .nav-group {
@@ -193,254 +189,137 @@ header {
             text-align: center;
             font-weight: 300;
             text-transform: uppercase;
+            position: relative;
+            margin: 15px;
+            padding: 3px 0;
+        }
+
+        a::before, a::after {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: $colorReslatado;
+            position: absolute;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.5s;
+        }
+
+        a::after {
+            bottom: 0;
+            transform-origin: right;
+        }
+
+        a::before {
+            top: 0;
+            transform-origin: left;
+        }
+
+        a:hover::before, a:hover::after {
+            transform: scaleX(1);
         }
     }
 }
 
+.change {
+    right: 0;
+}
+.change .line-1 {
+    transform: rotateZ(-45deg) translate(-8px, 8px);
+}
+
+.change .line-3 {
+    transform: rotateZ(45deg) translate(-9px, -12px);
+}
+    
+.change .line-2 {
+        opacity: 0;
+}
+
+.line {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    transition: all 0.8s;
+}
+
+@media (min-width: 720px){
+    .navbar {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1100px){
+    .navbar {
+        width: 45%;
+    }
+}
 
 
 .iconify { width: 45px; height: 45px; }
 
-
- .talents {
-    height: auto;
-    background-image: url(../images/wall-tot.png);
-    background-position: center;
-    background-size: cover;
- }
-
- .carrousel {
-    max-width: 1000px;
-    position: relative;
-    margin: auto;
-    margin-bottom: -35px;
-    transition: ease-in-out 0.5s;
- }
- 
- .mosaic {
-    display: grid;
-    position: relative;
-    margin: 1rem auto;
-    width:100%;
-    transition: ease-in-out 0.5s;
-    height: 500px;
-    max-width:960px;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(2, 250px);
-    column-gap: 0.2rem;
-    .tile:nth-child(1){
-        grid-column: span 3;
-        grid-row: span 2;
-    }
-    .tile:nth-child(2),
-    .tile:nth-child(3){
-        grid-column: span 3;
-    }
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    #third-img {
-        object-fit: fill;
-    }
-   
- }
-
- @media (max-width: 580px) {
-    .dots {
-        bottom: -12%;
-        position: relative;
-    }
-    .talents {
-        height: 750px;
-        background-color: $colorPrincipal;
-     }
-    .mosaic{
-        margin-left: 15px;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 200px);
-        .tile:nth-child(1){
-            grid-column: span 2;
-            grid-row: span 1;
-        }
-        .tile:nth-child(2),
-        .tile:nth-child(3){
-            grid-column: span 2;
-        }
-        row-gap: 0.5rem;
-
-        img {
-            width: 350px; height: 200px;
-            object-fit: cover;
-        }
-        #third-img {
-            object-fit: fill;
-        }
-    }
-    .tile{
-        margin-bottom: 1rem;
-        width: 100%;
-        height: auto;
-    } 
-
-    
- } 
- 
- /** Carrousel **/
-
-.mosaic {
-    display: none;
-}
-
-.btn-players {
-    display: none;
-    margin-bottom: 60px;
-    background: $colorPrincipal;
-    color: white;
-}
-
-.BD-back {
-    top: -3.5%;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.1);
-    margin: 1rem 0rem;
-    width: 100%;
-    height: 501px;
-    transition: ease-in-out 0.5s;
-
-    .names-pla {
-        display: none;
-        color: white;
-        font-family: $fuenteJost;
-        font-weight: 500;
-        margin-bottom: 10px;
-    }
-}
-
-@media (min-width: 875px) {
-    .carrousel:hover{
-        .BD-back{
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-
-            .btn-players {
-                display: block;
-            }
-
-            .names-pla {
-                display: block;
-            }
-        }
-    }
-} 
-
-@media (max-width: 580px) {
-    .BD-back {
-        background-color: rgba(0, 0, 0, 0.7);
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        height: 620px;
-        width: 350px;
-    }
-
-} 
-
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 25%;
-    user-select: none;
-  }
-  .next {
-    right: 0;
-    border-radius: 25%;
-  }
-  /* On hover, add a black background color with a little bit see-through */
-    .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.2);
-  }
-  .dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 15px 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
-  
-  .active, .dot:hover {
-    background-color: #717171;
-  }
-
-  /* Fading animation */
-.fade {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
-  }
-  
-  @-webkit-keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-  
-  @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
-  }
-
   /** Servicios **/
 
   .service {
-      background-color: $colorSecundario;
+      background-color: white;
+      h1 {
+          color: $colorSecundario;
+      }
   }
 
   .services {
       display: flex;
       justify-content: space-between;
+      flex-direction: column;
       margin-top: 10px;
 
       .card {
           display: flex;
           flex-direction: column;
           border: solid 0.1rem white;
-          width: 30.3%;
-          background-color: $colorPrincipal;
+          width: 100%;
           margin-bottom: 10px;
+        
+          .text-content {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.80);
+            width: 94%;
+            margin: 0;
+            height: 41em;
+            align-items: center;
+            h1 {
+                color: white;
+                font-weight: 600;
+                position: relative;
+            }
 
-          p {
-              margin-top: 10px;
-              text-align: center;
-              font-size: 1.2rem;
-              margin: 10px 35px;
-              color: white;
+            h1::after {
+                content: "";
+                width: 100%;
+                height: 1px;
+                background-color: white;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+            }
+            p {
+                margin-top: 1em;
+                text-align: center;
+                font-size: 1.2rem;
+                margin: 10px 35px;
+                color: white;
+                margin-bottom: 1em;
+            }
+            
           }
-         
+         .picture {
+             object-fit: cover;
+             height: 41em;
+         }
       }
-  }
-
-  .services {
-    .card:last-child {
-        span{
-            font-size: 1.4rem;
-        }
-    }
   }
 
   .btn-contact {
@@ -451,28 +330,13 @@ header {
     color: white;
 }
 
-
-  @media (max-width: 580px) {
-
+@media (min-width: 1240px){
     .service {
-        height: 1500px;
+        
     }
-      .services {
-          display: block;
-          margin-bottom: 40px;
+}
 
-          .card {
-              margin: 10px 0;
-              width: 100%;
-              
 
-              .btn-contact {
-                  padding: 10px 45px;
-                  margin-bottom: 15px;
-              }
-          }
-      }
-  } 
 .about-us {
     background-color: $colorPrincipal;
     height: 100%;

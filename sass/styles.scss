@@ -315,10 +315,19 @@ header {
             }
             
           }
-         .picture {
-             object-fit: cover;
-             height: 41em;
-         }
+          .content-image {
+              
+            .picture {
+                width: 100%;
+                object-fit: cover;
+                height: 41em;
+            }
+
+            .btn-images {
+                display: none;
+            }
+
+        }
       }
   }
 
@@ -330,61 +339,246 @@ header {
     color: white;
 }
 
-@media (min-width: 1240px){
-    .service {
-        
+@media (min-width: 1020px){
+    .services{
+        width: 100%;
+        display: flex;
+        .card {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .text-content {
+                position: unset;
+                width: 48%;
+                height: 20em;
+                background-color: transparent;
+
+                p, h1 {
+                    color: $colorSecundario;
+                }
+
+                h1::after {
+                    background-color: $colorSecundario;
+                }
+            }
+            .content-image {
+                position: relative;
+                width: 48%;
+                .picture {
+                    transform: scale(0.9);
+                    width: 100%;
+                    height: 20em;
+                    transition: all 0.5s;   
+                }
+
+                .btn-images {
+                    display: block;
+                    box-shadow: none;
+                    color: transparent;
+                    position: absolute;
+                    bottom: 30%;
+                    left: 35%;
+                    transition: all 0.5s;
+                }
+            }
+
+            .content-image:hover {
+                .picture {
+                    transform: scale(1);
+                    filter: grayscale(1);
+                }
+
+                .btn-images {
+                    color: white;
+                    border: 1px solid white;
+                    background-color: transparent;
+                }
+
+                .btn-images:hover {
+                    color: black;
+                    background-color: white;
+                }
+            }
+        }
+
+        .card-2 {
+            background-color: $colorSecundario;
+            margin: 0;
+            .text-content {
+                order: 1;
+                p, h1{
+                    color: white;
+                }
+
+                h1::after {
+                    background-color: whitesmoke;
+                }
+            }
+
+            .content-image {
+                order: 0;
+            }
+        }
     }
+
+    .btn-contact {
+        display: none;
+        align-self: center;
+        padding: 10px 10px;
+        margin-bottom: 10px;
+        border: solid 1px white;
+        color: white;
+    }
+    
 }
+
 
 
 .about-us {
-    background-color: $colorPrincipal;
-    height: 100%;
+    width: 100%;
+    height: 150vh;
+    background-image: url(../images/alejandro-pikdo-VhvUJ6X2f_M-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
 
     .about {
+        width: 100%;
+        height: 150vh;
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+        flex-direction: column;
+        justify-content: center;
         padding-bottom: 45px;
-    
-        img {
-            width: 475px; height: 500px;
-            object-fit: cover;
+        background-color: rgba(0, 0, 0, 0.75);
+        h1 {
+            position: relative;
         }
     
+        h1::after {
+            content: "";
+            width: 75%;
+            height: 1px;
+            background-color: white;
+            position: absolute;
+            left: 12%;
+            bottom: 0;
+        }
         p {
-            width: 35%;
-            font-size: 1.8rem;
+            margin-top: 1.5em;
+            width: 75%;
+            font-size: 1.2em;
             align-self: center;
             color: white;
             font-weight: 300;
-            text-align: center;
+            text-align: left;
+            border-left: solid 1px white;
+            padding-left: 1em;
+        }
+
+        p:last-child {
+            padding-right: 1em;
+            text-align: right;
+            border-right: solid 1px white;
+            border-left: none;
         }
     }
 }
 
-@media (max-width: 580px) {
-    .about-us {
-        .about {
-            img {
-                width: 100%;
-                position: absolute;
-            }
-            p {
-                margin-top: 10px;
-                border: solid 1px white;
-                width: 95%;
+.players {
+    background-image: url(../images/prayer-x-AAxYvBisZ_E-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+
+    .main-carousel {
+
+        height: 35em;
+        .carousel-cell {
+
+            width: 100%;
+            img{
+                object-fit: cover;
+                width: 23em;
+                height: 30em;
                 position: relative;
-                background-color: rgba(0, 0, 0, 0.55);
+                left: 0;
+                top: 1em;
+            }
+            a{
+                position: absolute;
+                left: 38%;
+                bottom: 10%;
+                color: black;
+                box-shadow: none;
+                border: solid 1px white ;
+                background-color: white;
+            }
+            h2 {
+                position: absolute;
+                color: white;
+                display: block;
+                bottom: 3%;
+                width: 100%;
+                text-align: center;
             }
         }
     }
-}     
+}
 
+.flickity-page-dots {
+    bottom: 2%;
+}
 
+@media (min-width: 900px){
+    .players {
+        .main-carousel {
+            height: 20em;
+            .carousel-cell {
+                width: 33%;
+
+                img {
+                    width: 100%;
+                    height: 18em;
+                    transition: all 0.5s;
+                }
+
+                a {
+                    font-size: 0.8em;
+                    padding: 0.2em;
+                    background-color: transparent;
+                    color: white;
+                    transition: all 0.5s;
+                    display: none;
+                }
+
+                a:hover {
+                    background-color: white;
+                    color: $colorSecundario;
+                }
+
+                h2{
+                    font-size: 1em;
+                    bottom: 2%;
+                }
+            }
+
+            .carousel-cell:hover {
+                img {
+                    transform: scale(1.1);
+                    filter: grayscale(1);
+                }
+
+                a {
+                    display: block;
+                }
+            }
+        }
+    }
+}
 
 .contact {
-    background-image: url(../images/wall-form.png);
+    background-image: url(../images/black-paper-texture-7.jpg);
     background-position: right;
     background-size: cover;
     height: 100%;
@@ -395,10 +589,16 @@ header {
         .contactus {
             margin-top: 3em;
             margin-bottom: 3em;
-            background-color: $colorPrincipal;
+            background-color: black;
             height: 100%;
             padding: 1em 1em;
-            
+            border-radius: 5%;
+            border: 1px solid $colorPrincipal;
+            box-shadow: 0px 2px 2px 3px rgba(0, 0, 0, 0.25);
+
+            h1 {
+                font-weight: 700;
+            }
             h2 {
                 font-size: 1em;
                 text-align: center;
@@ -406,48 +606,38 @@ header {
                 margin-bottom: 1em;
             }
 
+            .inputs {
+                display: flex;
+                justify-content: space-around;
+            }
+
             input{
-                background-color: $colorSecundario;
+                background-color: black;
                 color: white;
-                border: none;
-                width: 28%;
+                border: 1px solid $colorPrincipal;
                 padding: 0.5em;
                 transition: 0.5s;
+                width: 100%;
+                text-align: center;
+                margin: 0.5em;
             }
 
             
-            input:last-child {
-                margin-left: 0.5em;
-                width: auto;
-                padding: 0.4em 1.2em;
+            .btn-enviar {
+                display: inline-block;
+                width: 100%;
+                padding: 0.1em;
                 cursor: pointer;
-
+                font-size: 0.8em;
+                margin: 0.5em 0;
+                background-color: white;
+                color: black;
             }
         }
    
     }
 
 }
-
-@media (max-width: 580px) {
-    .contact {
-        background-size: contain;
-        .container {
-            .contactus {
-                input {
-                    width: 31.85%;
-                    margin-bottom: 0.5em;
-                }
-
-                input:last-child {
-                    margin-left: 0;
-                    display: inline-block;
-                    width: 100%;
-                }
-            }
-        }
-    }
-} 
 
 .btn-enviar {
     box-shadow: none;
@@ -467,6 +657,22 @@ header {
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: white;
   }
+
+@media (min-width: 720px){
+    .contact {
+        .container {
+            .contactus{
+                input {
+                    margin: 0;
+                    margin-right: 0.2em;
+                }
+                .btn-enviar {
+                    width: 25%;
+                }
+            }
+        }
+    }
+}
 
 .footer {
     background-image: url(../images/wall-pi.png);

@@ -361,13 +361,23 @@ header p span {
     justify-content: space-between;
   }
 }
+.parallax::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(-1px) scale(1.5);
+  background-size: 100%;
+  z-index: -1;
+}
+
 .about-us {
   width: 100%;
   height: 100%;
   background-image: url(../images/fondo-about.JPG);
-  background-position: center;
   background-size: cover;
-  background-attachment: fixed;
 }
 .about-us .about {
   width: 100%;

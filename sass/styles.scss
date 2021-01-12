@@ -109,7 +109,8 @@ header {
     position: absolute;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0,0,0,.5);
+    background-image: url(../images/FONDO.jpg);
+    background-size: cover;
     top: 0px;
     z-index: 2;
     display: flex;
@@ -154,6 +155,15 @@ header {
     margin-top: 50px;
 }
 
+.navbar-container {
+    background-color: black;
+    width: 100%;
+    height: 15vh;
+    position: fixed;
+    margin: 0;
+    left: 0;
+}
+
 .navbar {
     width: 75%;
     height: 100%;
@@ -163,7 +173,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:black;
+    background-image: url(../images/IMG_6570.JPG);
     transition: all 0.6s;
     .hamburguer-menu {
         width: 50px;
@@ -178,9 +188,40 @@ header {
         position: fixed;
     }
 
+    
+
     .nav-group {
         display: flex;
         flex-direction: column;
+        width: 80%;
+        margin-top: 2em;
+        figure {
+            width: 40%;
+            margin: auto;
+            height: 50%;
+            img {
+                width: 100%;
+                object-fit: cover;
+                
+            }
+        }
+
+        .icons {
+            width: 60%;
+            margin: 1em auto;
+            display: flex;
+            justify-content: space-around;
+            .iconify {
+              color: white;
+              width: 1.5em;
+              height: 1.5em;
+              transition: 0.5s ease-in-out;
+            }
+
+            .iconify:hover {
+                color: $colorReslatado;
+            }
+        }
 
         a {
             text-decoration: none;
@@ -272,6 +313,7 @@ header {
       justify-content: space-between;
       flex-direction: column;
       margin-top: 10px;
+      padding: 1.5em 0;
 
       .card {
           display: flex;
@@ -279,6 +321,8 @@ header {
           border: solid 0.1rem white;
           width: 100%;
           margin-bottom: 10px;
+          position: relative;
+          height: 75vh;
         
           .text-content {
               display: flex;
@@ -286,14 +330,20 @@ header {
               justify-content: center;
             position: absolute;
             background-color: rgba(0, 0, 0, 0.80);
-            width: 94%;
+            width: 100%;
             margin: 0;
-            height: 41em;
+            height: 75vh;
             align-items: center;
             h1 {
+                padding: 0;
                 color: white;
                 font-weight: 600;
                 position: relative;
+                font-size: 3ch;
+            }
+
+            .marketing-h1 {
+                font-size: 2.5ch;
             }
 
             h1::after {
@@ -320,7 +370,7 @@ header {
             .picture {
                 width: 100%;
                 object-fit: cover;
-                height: 41em;
+                height: 75vh;
             }
 
             .btn-images {
@@ -336,109 +386,26 @@ header {
     padding: 10px 10px;
     margin-bottom: 10px;
     border: solid 1px white;
+    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     color: white;
 }
 
-@media (min-width: 1020px){
-    .services{
-        width: 100%;
-        display: flex;
-        .card {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            .text-content {
-                position: unset;
-                width: 48%;
-                height: 20em;
-                background-color: transparent;
-
-                p, h1 {
-                    color: $colorSecundario;
-                }
-
-                h1::after {
-                    background-color: $colorSecundario;
-                }
-            }
-            .content-image {
-                position: relative;
-                width: 48%;
-                .picture {
-                    transform: scale(0.9);
-                    width: 100%;
-                    height: 20em;
-                    transition: all 0.5s;   
-                }
-
-                .btn-images {
-                    display: block;
-                    box-shadow: none;
-                    color: transparent;
-                    position: absolute;
-                    bottom: 30%;
-                    left: 35%;
-                    transition: all 0.5s;
-                }
-            }
-
-            .content-image:hover {
-                .picture {
-                    transform: scale(1);
-                    filter: grayscale(1);
-                }
-
-                .btn-images {
-                    color: white;
-                    border: 1px solid white;
-                    background-color: transparent;
-                }
-
-                .btn-images:hover {
-                    color: black;
-                    background-color: white;
-                }
-            }
-        }
-
-        .card-2 {
-            background-color: $colorSecundario;
-            margin: 0;
-            .text-content {
-                order: 1;
-                p, h1{
-                    color: white;
-                }
-
-                h1::after {
-                    background-color: whitesmoke;
-                }
-            }
-
-            .content-image {
-                order: 0;
-            }
-        }
-    }
-
-    .btn-contact {
-        display: none;
-        align-self: center;
-        padding: 10px 10px;
-        margin-bottom: 10px;
-        border: solid 1px white;
-        color: white;
-    }
-    
+.btn-contact:hover {
+    background-color: white;
+    color: black;
 }
 
-
+@media (min-width: 800px) {
+    .services {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
 
 .about-us {
     width: 100%;
-    height: 150vh;
-    background-image: url(../images/alejandro-pikdo-VhvUJ6X2f_M-unsplash.jpg);
+    height: 100%;
+    background-image: url(../images/fondo-about.JPG);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -446,14 +413,16 @@ header {
 
     .about {
         width: 100%;
-        height: 150vh;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
         padding-bottom: 45px;
         background-color: rgba(0, 0, 0, 0.75);
+        background-size: cover;
         h1 {
             position: relative;
+            padding: 0;
         }
     
         h1::after {
@@ -486,115 +455,110 @@ header {
     }
 }
 
-.players {
-    background-image: url(../images/prayer-x-AAxYvBisZ_E-unsplash.jpg);
-    background-size: cover;
-    background-position: center;
+.team {
+    background-color: white;
+    height: 100%;
 
-    .main-carousel {
+    .card {
+        background-color: white;
+        transition: 0.5s ease-in-out;
+        width: 100%;
+    }
 
-        height: 35em;
-        .carousel-cell {
+    .card:hover {
+        box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    }
 
+    .content {
+        width: 75%;
+        margin: 1em auto;
+    }
+    h1 {
+        color: black;
+        font-weight: 700;
+        position: relative;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    h1::after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: black;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+    .team-container {
+        width: 65%;
+        height: 100vh;
+        margin: 0 auto;
+        padding: 1em 0;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+
+        img {
             width: 100%;
-            img{
-                object-fit: cover;
-                width: 23em;
-                height: 30em;
-                position: relative;
-                left: 0;
-                top: 1em;
-            }
-            a{
-                position: absolute;
-                left: 38%;
-                bottom: 10%;
-                color: black;
-                box-shadow: none;
-                border: solid 1px white ;
-                background-color: white;
-            }
-            h2 {
-                position: absolute;
-                color: white;
-                display: block;
-                bottom: 3%;
-                width: 100%;
-                text-align: center;
-            }
+        }
+
+        h2 {
+            font-weight: 400;
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            width: 20%;
+            height: 1px;
+            background-color: black;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        span {
+            font-weight: 200;
+            font-style: italic;
         }
     }
 }
-
-.flickity-page-dots {
-    bottom: 2%;
-}
-
-@media (min-width: 900px){
-    .players {
-        .main-carousel {
-            height: 20em;
-            .carousel-cell {
-                width: 33%;
-
-                img {
-                    width: 100%;
-                    height: 18em;
-                    transition: all 0.5s;
-                }
-
-                a {
-                    font-size: 0.8em;
-                    padding: 0.2em;
-                    background-color: transparent;
-                    color: white;
-                    transition: all 0.5s;
-                    display: none;
-                }
-
-                a:hover {
-                    background-color: white;
-                    color: $colorSecundario;
-                }
-
-                h2{
-                    font-size: 1em;
-                    bottom: 2%;
-                }
-            }
-
-            .carousel-cell:hover {
-                img {
-                    transform: scale(1.1);
-                    filter: grayscale(1);
-                }
-
-                a {
-                    display: block;
-                }
-            }
+@media (min-width: 800px) {
+    .team {
+        .team-container{
+            flex-direction: row;
         }
     }
-}
 
+}
 .contact {
-    background-image: url(../images/black-paper-texture-7.jpg);
+    background-color: black;
     background-position: right;
     background-size: cover;
     height: 100%;
     .container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
+        .ilustration {
+            display: none;
+            width: 50%;
+            margin-top: 3em;
+            img {
+                width: 100%;
+            }
+        }
         .contactus {
             margin-top: 3em;
             margin-bottom: 3em;
             background-color: black;
             height: 100%;
+            width: 90%;
             padding: 1em 1em;
             border-radius: 5%;
             border: 1px solid $colorPrincipal;
-            box-shadow: 0px 2px 2px 3px rgba(0, 0, 0, 0.25);
+            box-shadow: 0px 2px 2px 3px rgba(255, 252, 252, 0.8);
 
             h1 {
                 font-weight: 700;
@@ -630,6 +594,11 @@ header {
                 cursor: pointer;
                 font-size: 0.8em;
                 margin: 0.5em 0;
+                background-color: black;
+                color: white;
+            }
+
+            .btn-enviar:hover {
                 background-color: white;
                 color: black;
             }
@@ -639,19 +608,23 @@ header {
 
 }
 
-.btn-enviar {
-    box-shadow: none;
-    transition: 0.5s;
-}
-
-.btn-enviar:hover {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+@media (min-width: 800px) {
+    .contact {
+        .container {
+            .ilustration {
+                display: unset;
+            }
+            .contactus {
+                width: 50%;
+            }
+        }
+    }
 }
 
 
 ::placeholder {
     color: white;
-    opacity: 1;
+    opacity: 0.7;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
@@ -668,6 +641,7 @@ header {
                 }
                 .btn-enviar {
                     width: 25%;
+                    margin: 1em auto;
                 }
             }
         }
@@ -675,82 +649,65 @@ header {
 }
 
 .footer {
-    background-image: url(../images/wall-pi.png);
+    background-color: white;
     background-size: cover;
     background-position: left;
     height: 100%;
     .container {
+        width: 60%;
+        margin: 0 auto;
         .foot-elements {
             display: flex;
             justify-content: space-between;
-            figure {
-                img {
-                    width: 300px; height: 300px;
-                    object-fit: cover;
-                }
-            }
+            flex-direction: column;
 
             .text-elements {
                 display: flex;
                 flex-direction: column;
-                margin-top: 60px;
-                margin-right: 120px;
+                margin-top: 1em;
+                color: black;
 
                 h2 {
                     text-align: center;
-                    color: white;
                     margin-bottom: 1em;
+                    position: relative;
+                }
+                h2::after {
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    background-color: black;
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
                 }
 
                 .icons {
                     align-self: center;
-                    color: white;
                 }
 
                 .iconify {
-                    color: white;
-
-                    path {
-                        transition: 0.5s;
-                    }
+                    width: 2.5em;
+                    height: 2.5em;
+                  transition: 0.5s ease-in;
+                  box-shadow: 0 3px 6px rgb(255, 255, 255), 0 3px 6px rgb(255, 255, 255);
+                  border-radius: 20%;
                 }
 
                 .iconify:hover {
-                    path {
-                        color: black;
-                    }
+                    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+                    transform: scale(1.1);
                 }
 
                 p {
                     margin-top: 1em;
-                    color: white;
                     text-align: center;
+                    text-transform: lowercase;
+                    font-weight: 200;
+                    font-style: italic;
                 }
             }
         }
     }
 }
-
-@media (max-width: 580px) {
-    .footer {
-        background-image: none;
-        background-color: $colorSecundario;
-        background-size: contain;
-        background-position: left;
-        .container {
-            .foot-elements {
-                display: flex;
-                flex-direction: column;
-
-                .text-elements {
-                    margin-right: 0;
-                    margin-top: 20px;
-                }
-
-            }
-
-           
-        }
-    }
-} 
 

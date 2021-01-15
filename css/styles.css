@@ -91,7 +91,7 @@ header {
   position: absolute;
   width: 100%;
   height: 100vh;
-  background-image: url(../images/FONDO.jpg);
+  background-image: url(../images/alejandro-pikdo-VhvUJ6X2f_M-unsplash-min.jpg);
   background-size: cover;
   top: 0px;
   z-index: 2;
@@ -364,7 +364,7 @@ header p span {
 .about-us {
   width: 100%;
   height: 100%;
-  background-image: url(../images/fondo-about.JPG);
+  background-image: url(../images/fondo-about-min.JPG);
   background-size: cover;
   background-position: center;
 }

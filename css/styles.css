@@ -545,6 +545,7 @@ header p span {
 }
 .contact .container .contactus h1 {
   font-weight: 700;
+  font-size: 1.5em;
 }
 .contact .container .contactus h2 {
   font-size: 1em;
@@ -555,6 +556,8 @@ header p span {
 .contact .container .contactus .inputs {
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
+  row-gap: 0.2rem;
 }
 .contact .container .contactus input {
   background-color: black;
@@ -564,7 +567,6 @@ header p span {
   transition: 0.5s;
   width: 100%;
   text-align: center;
-  margin: 0.5em;
 }
 .contact .container .contactus .btn-enviar {
   display: inline-block;
@@ -581,12 +583,16 @@ header p span {
   color: black;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 965px) {
   .contact .container .ilustration {
     display: unset;
   }
   .contact .container .contactus {
     width: 50%;
+  }
+  .contact .container .contactus .inputs {
+    flex-direction: row;
+    column-gap: 0.2rem;
   }
 }
 ::placeholder {
@@ -605,8 +611,8 @@ header p span {
     margin-right: 0.2em;
   }
   .contact .container .contactus .btn-enviar {
-    width: 25%;
-    margin: 1em auto;
+    width: 100%;
+    margin-top: 0.6rem;
   }
 }
 .footer {

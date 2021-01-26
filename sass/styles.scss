@@ -604,6 +604,7 @@ header {
 
             h1 {
                 font-weight: 700;
+                font-size: 1.5em;
             }
             h2 {
                 font-size: 1em;
@@ -615,6 +616,8 @@ header {
             .inputs {
                 display: flex;
                 justify-content: space-around;
+                flex-direction: column;
+                row-gap: 0.2rem;
             }
 
             input{
@@ -625,7 +628,6 @@ header {
                 transition: 0.5s;
                 width: 100%;
                 text-align: center;
-                margin: 0.5em;
             }
 
             
@@ -650,7 +652,7 @@ header {
 
 }
 
-@media (min-width: 800px) {
+@media (min-width: 965px) {
     .contact {
         .container {
             .ilustration {
@@ -658,6 +660,11 @@ header {
             }
             .contactus {
                 width: 50%;
+
+                .inputs {
+                    flex-direction: row;
+                    column-gap: 0.2rem;
+                }
             }
         }
     }
@@ -682,8 +689,8 @@ header {
                     margin-right: 0.2em;
                 }
                 .btn-enviar {
-                    width: 25%;
-                    margin: 1em auto;
+                    width: 100%;
+                   margin-top: 0.6rem;
                 }
             }
         }
